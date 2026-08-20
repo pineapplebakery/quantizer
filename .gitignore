@@ -216,3 +216,11 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Model artifacts and experiment outputs
+outputs/
+artifacts/
+*.onnx
+*.ckpt
+*.pt
+*.pth
