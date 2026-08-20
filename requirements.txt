@@ -1,0 +1,5 @@
+# Python >= 3.13
+numpy==2.5.1
+onnx>=1.22.0
+onnxruntime==1.20.0
+pytest>=9.1.1

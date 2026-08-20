@@ -217,10 +217,14 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
+# Local agent work plans
+docs/
+
 # Model artifacts and experiment outputs
 outputs/
 artifacts/
 *.onnx
+*.npy
 *.ckpt
 *.pt
 *.pth

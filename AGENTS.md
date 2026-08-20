@@ -30,7 +30,7 @@ Dynamic and static quantization of arbitrary ONNX graphs. This package is model-
 |---|---|
 | Project code | `src/` |
 | Tests | `tests/`. Verify with tiny generic ONNX graphs and hand-written npy |
-| Dependencies | `uv`. `pyproject.toml` and `uv.lock` are source of truth |
+| Dependencies | `pip`. `requirements.txt` is source of truth |
 | Artifacts | Do not commit ONNX, npy calibration sets, or experiment outputs |
 | Work plans | `docs/plans/YYYY-MM-DD-<slug>.md` |
 
@@ -46,14 +46,14 @@ Dynamic and static quantization of arbitrary ONNX graphs. This package is model-
 
 ```bash
 # Single test or file
-uv run pytest tests/path/to/test_module.py::test_name -q
-uv run pytest tests/path/to/test_module.py -q
+pytest tests/path/to/test_module.py::test_name -q
+pytest tests/path/to/test_module.py -q
 
 # Broader check after a change
-uv run pytest -q
+pytest -q
 
-# Sync deps (honor the lock)
-uv sync --frozen
+# Sync deps
+pip install -r requirements.txt
 ```
 
 - Default verification uses small inputs and does not need a network. Do not assume a real-model ONNX, a large calibration set, or a long quantization run.
@@ -64,5 +64,5 @@ uv sync --frozen
 | No need to ask | Ask first |
 |---|---|
 | Reads; focused edits under `src/` / `tests/` | Adding, removing, or major-updating a dependency |
-| Targeted `pytest`, `uv sync --frozen` | Destructive git, force push, push to a shared remote |
+| Targeted `pytest`, `pip install -r requirements.txt` | Destructive git, force push, push to a shared remote |
 | Small doc fixes | Long quantization of a real ONNX; deleting artifacts |
